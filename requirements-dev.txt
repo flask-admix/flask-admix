@@ -18,6 +18,7 @@ arrow
 colour
 email-validator
 wtforms
+tablib
 # flask
 itsdangerous
 # sqlalchemy-utils

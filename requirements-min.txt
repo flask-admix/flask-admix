@@ -21,6 +21,7 @@ arrow==0.13.2
 colour==0.1.5
 email-validator==1.1.2
 wtforms==2.2
+tablib==0.13.0
 # flask
 itsdangerous==2.0.1
 # flask-babelex, sqlalchemy-utils
