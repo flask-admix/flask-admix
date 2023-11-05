@@ -1,15 +1,27 @@
-Flask-Admin
+Flask-Admix
 ===========
 
-The project was recently moved into its own organization. Please update your
-references to *git@github.com:flask-admin/flask-admin.git*.
+.. image:: https://github.com/flask-admix/flask-admix/actions/workflows/test.yaml/badge.svg?branch=main
+	:target: https://github.com/flask-admix/flask-admix/actions/workflows/test.yaml
 
-.. image:: https://d322cqt584bo4o.cloudfront.net/flask-admin/localized.svg
-	:target: https://crowdin.com/project/flask-admin
+.. image:: https://img.shields.io/badge/license-BSD--3--Clause-blue
+	:target: https://opensource.org/license/bsd-3-clause/
 
-.. image:: https://github.com/flask-admin/flask-admin/actions/workflows/test.yaml/badge.svg
-	:target: https://github.com/flask-admin/flask-admin/actions/workflows/test.yaml
+This is Flask-Admin plus Flask-Admin PRs to extend testing and fix test failures with newer versions of dependencies,
+minus features that are not compatible.
+It provides the flask_admin package and therefore cannot be installed in the same environment as Flask-Admin.
 
+- modules that were not tested or had tests that do not pass with newer dependencies have been removed
+- fixes only for test failures and some deprecation warnings
+- no new features
+- no updated documentation
+- no updated examples
+- no updated translations
+
+The main branch may be rebased at any time. Branches are preserved for each release.
+
+Flask-Admin
+===========
 
 Introduction
 ------------
