@@ -62,11 +62,9 @@ setup(
     tests_require=[
         'pytest',
         'pillow>=9.1.0',
-        'mongoengine',
         'pymongo',
         'wtf-peewee',
         'sqlalchemy',
-        'flask-mongoengine<=0.21.0',
         'flask-sqlalchemy',
         'flask-babelex',
         'shapely',
