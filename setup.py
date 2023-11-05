@@ -38,8 +38,8 @@ extras_require = {
 
 
 install_requires = [
-    'Flask>=0.7',
-    'wtforms'
+    'Flask>=1.1.1',
+    'wtforms>=3.1.0'
 ]
 
 
