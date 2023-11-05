@@ -65,6 +65,15 @@ jobs:
         run: pip install tox
       - name: Run tests
         run: tox -e ${{ matrix.tox-env }}
+      - name: Give coverage data a unique name
+        run: >
+          mv .coverage .coverage.${{ matrix.tox-env }}-${{ matrix.python-version }}
+      - name: Upload coverage data
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-data
+          path: ".coverage.*"
+          if-no-files-found: ignore
   checks:
     name: ${{ matrix.tox-env }}
     runs-on: ubuntu-latest
@@ -82,3 +91,35 @@ jobs:
         run: pip install tox
       - name: Run ${{ matrix.tox-env }}
         run: tox -e ${{ matrix.tox-env }}
+  coverage:
+    name: Combine & publish coverage
+    if: always()
+    needs: tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install coverage
+        run: pip install coverage[toml]
+      - uses: actions/download-artifact@v3
+        with:
+          name: coverage-data
+      - name: Combine coverage
+        run: |
+          coverage combine
+          coverage html --title="Coverage@${GITHUB_SHA::8}" --omit="flask_admin/tests/*"
+          # Report and write to summary.
+          coverage report --format=markdown >> $GITHUB_STEP_SUMMARY
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: 'htmlcov'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
