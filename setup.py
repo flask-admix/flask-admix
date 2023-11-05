@@ -44,13 +44,12 @@ install_requires = [
 
 
 setup(
-    name='Flask-Admin',
+    name='Flask-Admix',
     version=grep('__version__'),
-    url='https://github.com/flask-admin/flask-admin/',
+    url='https://github.com/flask-admix/flask-admix/',
     license='BSD',
     python_requires='>=3.8',
     author=grep('__author__'),
-    author_email=grep('__email__'),
     description='Simple and extensible admin interface framework for Flask',
     long_description=desc(),
     packages=find_packages(),
