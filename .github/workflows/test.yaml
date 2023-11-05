@@ -114,7 +114,7 @@ jobs:
       - name: Combine coverage
         run: |
           coverage combine
-          coverage html --title="Coverage@${GITHUB_SHA::8}" --omit="flask_admin/tests/*"
+          coverage html --title="Flask-Admix Coverage@${GITHUB_SHA::8}" --omit="flask_admin/tests/*"
           # Report and write to summary.
           coverage report --format=markdown >> $GITHUB_STEP_SUMMARY
       - name: Upload artifact
