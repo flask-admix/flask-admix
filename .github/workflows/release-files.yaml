@@ -31,7 +31,7 @@ jobs:
 
       - name: Install Python packages
         run: >
-            pip3 install -U build twine
+            pip3 install -U hatchling twine
 
       - name: Set SOURCE_DATE_EPOCH
         run: >
@@ -39,7 +39,7 @@ jobs:
 
       - name: Create distribution files
         run: >
-            python3 -m build
+            python3 -m hatchling build
 
       - name: Generate Sigstore signatures
         uses: sigstore/gh-action-sigstore-python@1a402ed919f6cb88b9bafb523fb65508c442514b

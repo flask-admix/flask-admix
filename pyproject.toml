@@ -1,0 +1,53 @@
+[project]
+name = "Flask-Admix"
+dynamic = ["version"]
+description = "Flask-Admin plus Flask-Admin PRs to extend testing and fix test failures"
+readme = "README.rst"
+authors = [{name = "Flask-Admin team plus contributors"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+requires-python = ">=3.8"
+
+dependencies = [
+    "Flask>=1.1.1",
+    "wtforms>=3.1.0"
+]
+
+[project.optional-dependencies]
+azure = ["azure-storage-blob"]
+
+[build-system]
+requires = [
+    "hatchling>=1.8.0",
+]
+build-backend = "hatchling.build"
+
+[project.urls]
+Repository = "https://github.com/flask-admix/flask-admix"
+
+[tool.hatch.version]
+path = "flask_admin/__init__.py"
+
+[tool.hatch.build]
+exclude = [".git*"]
+
+[tool.hatch.build.targets.sdist]
+strict-naming = false
+
+[tool.hatch.build.targets.wheel]
+only-include = ["flask_admin"]
+exclude = ["flask_admin/tests"]
+strict-naming = false
