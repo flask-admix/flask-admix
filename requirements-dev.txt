@@ -17,7 +17,7 @@ azure-storage-blob<12
 arrow
 colour
 email-validator
-wtforms
+wtforms<3.2
 tablib
 # flask
 itsdangerous
